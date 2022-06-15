@@ -1,0 +1,53 @@
+<p-toast></p-toast>
+<div class="admin-page">
+    <p-card header="Pedidos" subheader="Listado de Pedidos">
+        <div class="p-grid">
+            <div class="p-col-12">
+                <p-table 
+                [paginator]="true"
+                [rows]="10"
+                [value]="pedidos" 
+                responsiveLayout="scroll" 
+                styleClass="p-datatable-gridlines"
+                [globalFilterFields]="['nombreu']">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th pSortableColumn="nombreu">Usuario<p-sortIcon field="nombreu"></p-sortIcon></th>
+                            <th pSortableColumn="precioTotal">Precio Total<p-sortIcon field="precioTotal"></p-sortIcon></th>
+                            <th pSortableColumn="fechaPedido">Fecha de Pedido<p-sortIcon field="fechaPedido"></p-sortIcon></th>
+                            <th pSortableColumn="estado">Estado<p-sortIcon field="estado"></p-sortIcon></th>
+                            <th></th>                       
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-pedido>
+                        <tr>
+
+                            <td>{{pedido.usuario.nombreu}}</td>
+                            <td>{{pedido.precioTotal}}</td>
+                            <td>{{pedido.fechaPedido | date: 'short'}}</td>
+                            <td>
+                                <p-tag [value]="pedidoEstados[pedido.estado].label"
+                                [severity]="pedidoEstados[pedido.estado].color"
+                                ></p-tag>
+                            </td>
+                            <td>
+                                <p-button 
+                                (click)="eliminarPedido(pedido.id)" 
+                                styleClass="p-button-danger p-mr-2" icon="pi pi-trash"></p-button>
+                                <p-button 
+                                (click)="verPedido(pedido.id)"
+                                styleClass="p-button-success" icon="pi pi-eye"></p-button>                            
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+                
+            </div>
+        </div>
+    </p-card>
+</div>
+<p-confirmDialog 
+[style]="{width: '50vw'}" 
+[baseZIndex]="10000" 
+rejectButtonStyleClass="p-button-text">
+</p-confirmDialog>

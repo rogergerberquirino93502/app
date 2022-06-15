@@ -1,0 +1,83 @@
+<p-toast></p-toast>
+<div class="admin-page" *ngIf="pedido">
+    <p-card 
+    [header]="'Ver pedido'" 
+    subheader="Cambiar estado de orden">
+    <p-fieldset legend="Detalle de Pedido" styleClass="p-mb-4" [toggleable]="true">
+        <div class="p-grid">
+            <div class="p-col-12 p-md-4">
+                <h5>Id Pedido</h5>
+                <p>{{ pedido.id }}</p>
+            </div>
+            <div class="p-col-12 p-md-4">
+                <h5>Fecha Pedido</h5>
+                <p>{{ pedido.fechaPedido | date: 'short'}}</p>
+            </div>
+
+            <div class="p-col-12 p-md-4">
+                <h5>Status Orden</h5>    
+                <p-dropdown [options]="pedidoStatus" 
+                optionLabel="nombre" 
+                optionValue="id"
+                (onChange)="onStatusChange($event)" 
+                [(ngModel)]="seleccionarEstado" 
+                placeholder="Seleccione estado">               
+                </p-dropdown>
+            </div>            
+            
+            <div class="p-col-12 p-md-4">
+                <h5>Total</h5>
+                <p>{{pedido.precioTotal | currency : "Q."}}</p>
+            </div>
+           
+        </div>
+    </p-fieldset>
+    <p-fieldset legend="Items de Pedido" styleClass="p-mb-4" [toggleable]="true">
+        <div class="p-grid p-mb-5">
+            <div class="p-col-2 p-text-bold">Nombre</div>
+            <div class="p-col-2 p-text-bold">Marca</div>
+            <div class="p-col-2 p-text-bold">Categoria</div>
+            <div class="p-col-2 p-text-bold">Precio</div>
+            <div class="p-col-2 p-text-bold">Cantidad</div>
+            <div class="p-col-2 p-text-bold">Subtotal</div>
+        </div>
+        
+        <div class="p-grid p-mb-5" *ngFor="let pedidoItem of pedido.pedidoItems">
+            <div class="p-col-2 p-text-bold">{{pedidoItem['producto.nombre']}}</div>
+            <div class="p-col-2 p-text-bold">{{pedidoItem.producto.marca}}</div>
+            <div class="p-col-2 p-text-bold">{{pedidoItem['producto'].categoria['nombre']}}</div>
+            <div class="p-col-2 p-text-bold">{{pedidoItem.producto.precio}}</div>
+            <div class="p-col-2 p-text-bold">{{pedidoItem.cantidad}}</div>
+            <div class="p-col-2 p-text-bold">{{pedidoItem.producto.precio * pedidoItem.cantidad | currency : "Q."}}</div>
+        </div>
+        <div class="p-grid" style="color:green">
+            <div class="p-col-2 p-offset-8 p-text-bold">Total Precio</div>
+            <div class="p-col-2 p-text-bold">{{pedido.precioTotal | currency : "Q."}}</div>
+        </div>
+    </p-fieldset>
+    <p-fieldset  legend="Direccion de Pedido" styleClass="p-mb-4" [toggleable]="true">
+        <div class="p-grid">
+            <div class="p-col-4">
+                <h5>Direccion Pedido</h5>
+                <p>
+                    {{pedido.direccion1}}<br />
+                    {{pedido.direccion2}}<br />
+                    {{pedido.zona}} <br />
+                    {{pedido.ciudad}}<br />
+                </p>
+            </div>
+            <div class="p-col-4 p">
+                <h5>Informacion Cliente</h5>
+                <p>
+                    {{pedido.usuario.nombreu}}<br />
+                    {{pedido.direccion2}}<br />
+                    {{pedido.zona}} <br />
+                    {{pedido.ciudad}}<br />
+                </p>
+            </div>
+
+            <div class="p-col-4 p"></div>
+        </div>
+    </p-fieldset>
+</p-card>
+</div>

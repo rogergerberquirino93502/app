@@ -1,0 +1,121 @@
+<p-toast></p-toast>
+<div class="admin-page">
+    <p-card 
+    [header]="modoEditar ? 'Editar Usuario' : 'Agregar Usuario'" 
+    subheader="Agregar o Editar Usuarios">
+        <div class="p-grid p-m-5">
+            <div class="p-col-12">
+                <p-toolbar>
+                    <div class="p-toolbar-group-left"></div>
+                    <div class="p-toolbar-group-right">
+                        <p-button 
+                        styleClass="p-button-primary p-mr-2"
+                        [label]="modoEditar ? 'Actualizar' : 'Agregar'" 
+                        icon="pi pi-plus"
+                        (click)="onSubmit()"
+                        ></p-button>                    
+                        <p-button 
+                        styleClass="p-button-secondary"
+                        label="Cancelar" 
+                        icon="pi pi-arrow-circle-left"
+                        (click)="onCancelar()">
+                        </p-button>
+                    </div>
+                </p-toolbar>
+            </div>
+        </div>
+        <div class="p-grid">
+                <div class="p-col-12">
+                    <form [formGroup]="form">
+                        <div class="p-fluid p-formgrid p-grid">
+                            <div class="p-field p-col-4">
+                                <label for="nombreu">Nombre</label>
+                                <input formControlName="nombreu" id="nombreu" type="text" pInputText/>
+                                <small *ngIf="form.controls['nombreu'].invalid && isSubmitted" class="p-error"
+                                >Obligatorio</small>
+                            </div>
+                            <div class="p-field p-col-4">
+                                <label for="correo">Correo</label>
+                                <input formControlName="correo" id="correo" type="text" pInputText/>
+                                <small *ngIf="form.controls['correo'].invalid && isSubmitted" class="p-error"
+                                >
+                            <span *ngIf="form.controls['correo']?.errors['required']">Correo Obligatorio</span>
+                            <span *ngIf="form.controls['correo']?.errors['email']"> Correo Invalido</span>
+                            </small>
+                            </div>
+                            <div class="p-field p-col-4">
+                                <label for="password">Contraseña</label><br />
+                                <input formControlName="password" id="password" type="password" pInputText />
+                                <small *ngIf="form.controls['password'].invalid && isSubmitted" class="p-error"
+                                >Obligatorio</small>
+                            </div>
+                            <div class="p-field p-col-4">
+                                <label for="telefono">Telefono</label><br />
+                                <p-inputMask
+                                mask="(502) 9999-9999"
+                                formControlName="telefono"
+                                placeholder="502 9999-9999"
+                                ></p-inputMask>
+                                <small *ngIf="form.controls['telefono'].invalid && isSubmitted" class="p-error"
+                                >Obligatorio</small>
+                            </div>                       
+                            <div class="p-field p-col-4">
+                                <label for="rol">Rol Admin</label><br />
+                                <p-inputSwitch formControlName="rol"></p-inputSwitch>
+                            </div>
+                        </div>
+                        <div class="p-fluid p-formgrid p-grid">
+                            <div class="p-field p-col-4">
+                                <label for="ciudad">Pais</label><br />
+                                <p-dropdown
+                                [options]="ciudades"
+                                formControlName="ciudad"
+                                optionLabel="nomc"
+                                optionValue="id"
+                                [filter]="true"
+                                filterBy="nomc"
+                                [showClear]="true"
+                                placeholder="Selecciona el Pais">
+                            </p-dropdown>
+                            </div>
+                            <div class="p-field p-col-4">
+                                <label for="departamento" id="departamento">Departamento</label><br />
+                                <p-dropdown
+                                [options]="this.departamentos"
+                                formControlName="departamento"
+                                optionLabel="depto"
+                                optionValue="id"
+                                [filter]="true"
+                                filterBy="depto"
+                                [showClear]="true"
+                                placeholder="Selecciona el Departamento"
+                                >
+                            </p-dropdown>
+                            </div>
+                            <div class="p-field p-col-4">
+                                <label for="municipio">Municipio</label><br />
+                                <p-dropdown
+                                [options]="this.municipios"
+                                formControlName="municipio"
+                                optionLabel="municipio"
+                                optionValue="id"
+                                [filter]="true"
+                                filterBy="municipio"
+                                [showClear]="true"
+                                placeholder="Selecciona el Municipio">
+                            </p-dropdown>
+                            </div>
+                            <div class="p-field p-col-4">
+                                <label for="calle">Calle</label>
+                                <input formControlName="calle" id="calle" type="text" pInputText />
+                            </div>
+                            <div class="p-field p-col-4">
+                                <label for="zona">Zona</label>
+                                <input formControlName="zona" id="zona" type="text" pInputText />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    </p-card>
+</div>

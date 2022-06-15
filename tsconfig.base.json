@@ -1,0 +1,26 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "rootDir": ".",
+        "sourceMap": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "target": "es2015",
+        "module": "esnext",
+        "lib": ["es2017", "dom"],
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
+        "baseUrl": ".",
+        "paths": {
+            "@env/*": ["environments/*"],
+            "@seminario/pedidos": ["libs/pedidos/src/index.ts"],
+            "@seminario/productos": ["libs/productos/src/index.ts"],
+            "@seminario/ui": ["libs/ui/src/index.ts"],
+            "@seminario/usuarios": ["libs/usuarios/src/index.ts"]
+        }
+    },
+    "exclude": ["node_modules", "tmp"]
+}

@@ -1,0 +1,24 @@
+1. npm install -g @angular/cli
+2. npm install -g nx
+3. npx create-nx-workspace --preset=core
+4. npx create-nx-workspace --preset=angular 
+5. npm install --save-dev @angular-devkit/build-angular
+6. nx generate @nrwl/angulkar:app admin 
+7. nx serve admin --port 4100
+8. nx g component home-page --project=apptransporte
+9. nx g component pages/home-page --project=apptransporte 
+10. nx g component pages/listado-productos --project=apptransporte 
+11. nx g component shared/header --project=apptransport 
+12. nx g component shared/footer --project=apptransport
+13.  npx nx g @nrwl/workspace:lib ui --dry-run
+14. npx nx g @nrwl/workspace:lib ui --dry-run 
+15. npx nx g @nrwl/workspace:lib ui
+16. npx nx generate @schematics/angular:component slider --project=ui --style=scss --export --prefix=ui --selector=slider --no-interactive
+17. mkdir styles
+18. npm install bootstrap 
+19. npm i primeng --save 
+20. npm i primeicons --save 
+21. npm install primeflex --save 
+22. npm i normalize.css 
+23. npm install @angular/cdk --save 
+24. 

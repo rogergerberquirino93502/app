@@ -1,0 +1,72 @@
+<div class="admin-page">
+    <p-card header="Dashboard" subheader="Actualizaciones Recientes">
+        <div class="p-grid">
+            <div class="p-col-3">
+            <p-card styleClass="d-pedidos">
+                <div class="d-item">
+                    <div>
+                        <i class="pi pi-shopping-cart"></i> <br />
+                        <span class="nombre">Pedidos</span>
+                    </div>
+                    <span class="numero">{{ statistics[0] }}</span>
+                </div>
+            </p-card>
+            </div>
+            <div class="p-col-3">
+                <p-card styleClass="d-productos">
+                    <div class="d-item">
+                        <div>
+                            <i class="pi pi-briefcase"></i> <br />
+                            <span class="nombre">Productos</span>
+                        </div>
+                        <span class="numero">{{ statistics[1] }}</span>
+                    </div>
+                </p-card>
+                </div>
+                <div class="p-col-3">
+                    <p-card styleClass="d-usuarios">
+                        <div class="d-item">
+                            <div>
+                                <i class="pi pi-user-minus"></i> <br />
+                                <span class="nombre">Usuarios</span>
+                            </div>
+                            <span class="numero">{{ statistics[2] }}</span>
+                        </div>
+                    </p-card>
+                    </div>
+                    <div class="p-col-3">
+                        <p-card styleClass="d-totalventas">
+                            <div class="d-item">
+                                <div>
+                                    <i class="pi pi-credit-card"></i> <br />
+                                    <span class="nombre">Ventas</span>
+                                </div>
+                                <span class="numero">{{ statistics[3] | currency : "Q."}}</span>
+                            </div>
+                        </p-card>
+                        </div>
+                        <div class="p-col-3">
+                            <p-card styleClass="d-totalventas">
+                                <div class="d-item">
+                                    <div>
+                                        <i class="pi pi-credit-card"></i> <br />
+                                        <span class="nombre">Empresas</span>
+                                    </div>
+                                    <span class="numero"></span>
+                                </div>
+                            </p-card>
+                            </div>
+                            <div class="p-col-3">
+                                <p-card styleClass="d-totalventas">
+                                    <div class="d-item">
+                                        <div>
+                                            <i class="pi pi-credit-card"></i> <br />
+                                            <span class="nombre">Transportes</span>
+                                        </div>
+                                        <span class="numero"></span>
+                                    </div>
+                                </p-card>
+                                </div>
+        </div>
+    </p-card>
+</div>

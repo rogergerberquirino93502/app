@@ -1,0 +1,35 @@
+.d-item{
+    display: flex;
+    align-items: center;
+    color: var(--sufrace-2);
+    justify-content: space-between;
+
+    .pi{
+        font-size: 4em;
+        margin-bottom: 15px;
+    }
+
+    .nombre{
+        font-size: 1.5em;
+    }
+    .numero{
+        margin-top: 50px;
+        font-size: 2.5em;
+    }
+}
+.d-pedidos{
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+}
+.d-productos{
+    background-color: #00DBDE;
+    background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+}
+.d-usuarios{
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+}
+.d-totalventas{
+    background-color: #8BC6EC;
+    background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+}

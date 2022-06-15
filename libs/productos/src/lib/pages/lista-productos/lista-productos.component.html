@@ -1,0 +1,23 @@
+<div class="productos-page">
+    <h3 class="p-mb-1">Productos Destacados</h3>
+    <div class="p-grid">
+        <div class="p-col-3">
+            <h3>Categorias</h3>
+            <div class="field-checkbox" *ngFor="let categoria of categorias">
+                <p-checkbox 
+                [(ngModel)]="categoria.checked" [binary]="true" 
+                [inputId]="categoria.id" 
+                (onChange)="catFiltro()"
+                ></p-checkbox>
+                <label for="{{categoria.id}}">{{categoria.nombre}}</label>
+            </div>
+        </div>
+            <div class="p-col-9">
+             <div class="p-grid" *ngIf="productos">
+                <div class="p-col-4" *ngFor="let producto of productos">
+                    <productos-producto-item  [producto]="producto"></productos-producto-item>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<p-toast></p-toast>
+<div class="admin-page">
+    <p-card 
+    [header]="modoEditar ? 'Editar Categoria' : 'Agregar Categoria'" 
+    subheader="Agregar o Editar Categorias">
+        <div class="p-grid p-m-5">
+            <div class="p-col-12">
+                <p-toolbar>
+                    <div class="p-toolbar-group-left"></div>
+                    <div class="p-toolbar-group-right">
+                        <p-button 
+                        styleClass="p-button-primary p-mr-2"
+                        [label]="modoEditar ? 'Actualizar' : 'Agregar'" 
+                        icon="pi pi-plus"
+                        (click)="onSubmit()"
+                        ></p-button>                    
+                        <p-button 
+                        styleClass="p-button-secondary"
+                        label="Cancelar" 
+                        icon="pi pi-arrow-circle-left"
+                        (click)="onCancelar()">
+                        </p-button>
+                    </div>
+                </p-toolbar>
+            </div>
+        </div>
+        <div class="p-grid">
+                <div class="p-col-12">
+                    <form [formGroup]="form">
+                        <div class="p-fluid p-formgrid p-grid">
+                            <div class="p-field p-col">
+                                <label for="nombre">Nombre</label>
+                                <input formControlName="nombre" id="nombre" type="text" pInputText>
+                                <small *ngIf="categoriaForm.invalid && isSubmitted"  class="p-error">Es requerido</small>
+                            </div>
+                            <div class="p-field p-col">
+                                <label for="icono">Icono</label>
+                                <input formControlName="icono" id="icono" type="text" pInputText>
+                                <small *ngIf="categoriaForm.invalid && isSubmitted"  class="p-error">Es requerido</small>
+                            </div>
+                            <div class="p-field p-col">
+                                <label for="color">Color</label><br />
+                                <p-colorPicker formControlName="color"></p-colorPicker>
+                                <small *ngIf="categoriaForm.invalid && isSubmitted"  class="p-error">Es requerido</small>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    </p-card>
+</div>
